@@ -31,6 +31,12 @@
     <Filter Include="Source Files\KS-problem\structures">
       <UniqueIdentifier>{8e5cfdbf-4818-4f6a-951e-63045cef7af3}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\KS-problem\algorithms">
+      <UniqueIdentifier>{794465e1-80fa-4ed3-8539-b96e27fc73d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\KS-problem\algorithms\impl">
+      <UniqueIdentifier>{37def26f-898d-4d7e-88b2-83e0a12884ba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -42,14 +48,14 @@
     <ClCompile Include="KSKnapsack.cpp">
       <Filter>Source Files\KS-problem\structures</Filter>
     </ClCompile>
+    <ClCompile Include="KSAlgorithm.cpp">
+      <Filter>Source Files\KS-problem\algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="KSFullSearch.cpp">
+      <Filter>Source Files\KS-problem\algorithms</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
-    <ClInclude Include="KSAlgorithm.h">
-      <Filter>Header Files\KS-problem\algorithms</Filter>
-    </ClInclude>
-    <ClInclude Include="KSBruteForce.h">
-      <Filter>Header Files\KS-problem\algorithms</Filter>
-    </ClInclude>
     <ClInclude Include="KSItems.h">
       <Filter>Header Files\KS-problem\structures</Filter>
     </ClInclude>
@@ -61,6 +67,12 @@
     </ClInclude>
     <ClInclude Include="ListNode.h">
       <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="KSAlgorithm.h">
+      <Filter>Header Files\KS-problem\algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="KSFullSearch.h">
+      <Filter>Header Files\KS-problem\algorithms\impl</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
