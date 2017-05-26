@@ -21,7 +21,8 @@ public:
 	KSKnapsack() : knapsackItems(new List<KSKnapsackItem>()) {}	
 	~KSKnapsack() { delete knapsackItems; }
 
-	void addItem(unsigned id, unsigned weight, unsigned value);
+	void addItemFront(unsigned id, unsigned weight, unsigned value);
+	void addItemEnd(unsigned id, unsigned weight, unsigned value);
 	// todo: item access
 
 	std::string toString();

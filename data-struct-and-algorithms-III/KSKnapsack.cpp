@@ -3,9 +3,14 @@
 #include <sstream>
 #include <iomanip>
 
-void KSKnapsack::addItem(unsigned id, unsigned weight, unsigned value) {
+void KSKnapsack::addItemFront(unsigned id, unsigned weight, unsigned value) {
+	knapsackItems->addFront(KSKnapsackItem(id, weight, value));
+}
+
+void KSKnapsack::addItemEnd(unsigned id, unsigned weight, unsigned value) {
 	knapsackItems->addEnd(KSKnapsackItem(id, weight, value));
 }
+
 
 std::string KSKnapsack::toString() {
 	std::stringstream out;

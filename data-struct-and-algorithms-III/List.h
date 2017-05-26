@@ -14,6 +14,7 @@ public:
 
 	int size() { return currentSize; }
 
+	void addFront(Element element);
 	void addEnd(Element element);
 	Element get(int position);
 };
@@ -35,6 +36,21 @@ inline List<Element>::~List() {
 	}
 
 	delete iterator;
+}
+
+template<class Element>
+inline void List<Element>::addFront(Element element) {
+	ListNode<Element>* newNode = new ListNode<Element>(element);
+
+	if (head == nullptr) {
+		head = newNode;
+		tail = newNode;
+	} else {
+		newNode->next = head;
+		head = newNode;
+	}
+
+	currentSize++;
 }
 
 template<class Element>

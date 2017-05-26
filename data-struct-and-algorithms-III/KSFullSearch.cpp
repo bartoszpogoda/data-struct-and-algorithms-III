@@ -34,7 +34,7 @@ void KSFullSearch::execute(KSItems * items, unsigned capacity) {
 
 	for (size_t i = 0; i < items->getSize(); i++) {
 		if(itemsToTakeMask & currentMask)
-			result->addItem(i, items->getWeight(i), items->getValue(i));
+			result->addItemEnd(i, items->getWeight(i), items->getValue(i));
 		currentMask <<= 1;
 	} 
 }

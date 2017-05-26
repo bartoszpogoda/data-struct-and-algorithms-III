@@ -55,7 +55,8 @@ void KSDynamic::execute(KSItems * items, unsigned capacity) {
 	while (item > 0 && maxWeight >= 0) {
 		// if optimal value wasn't taken from upper cell - the item was included
 		if (resultTable[maxWeight][item] != resultTable[maxWeight][item - 1]) {
-			result->addItem(item - 1, items->getWeight(item - 1), items->getValue(item - 1));
+			// adding to front because we are checking items in reverse order 
+			result->addItemFront(item - 1, items->getWeight(item - 1), items->getValue(item - 1));
 			maxWeight -= items->getWeight(item - 1);
 		} 
 
