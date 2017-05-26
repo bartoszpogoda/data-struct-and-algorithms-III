@@ -54,6 +54,9 @@
     <ClCompile Include="KSFullSearch.cpp">
       <Filter>Source Files\KS-problem\algorithms</Filter>
     </ClCompile>
+    <ClCompile Include="KSDynamic.cpp">
+      <Filter>Source Files\KS-problem\algorithms</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KSItems.h">
@@ -72,6 +75,9 @@
       <Filter>Header Files\KS-problem\algorithms</Filter>
     </ClInclude>
     <ClInclude Include="KSFullSearch.h">
+      <Filter>Header Files\KS-problem\algorithms\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="KSDynamic.h">
       <Filter>Header Files\KS-problem\algorithms\impl</Filter>
     </ClInclude>
   </ItemGroup>

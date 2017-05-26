@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="KSAlgorithm.cpp" />
+    <ClCompile Include="KSDynamic.cpp" />
     <ClCompile Include="KSFullSearch.cpp" />
     <ClCompile Include="KSItems.cpp" />
     <ClCompile Include="KSKnapsack.cpp" />
@@ -150,6 +151,7 @@
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KSAlgorithm.h" />
+    <ClInclude Include="KSDynamic.h" />
     <ClInclude Include="KSFullSearch.h" />
     <ClInclude Include="KSItems.h" />
     <ClInclude Include="KSKnapsack.h" />
