@@ -143,6 +143,7 @@
   </ItemDefinitionGroup>
   <ItemGroup>
     <ClCompile Include="KSItems.cpp" />
+    <ClCompile Include="KSKnapsack.cpp" />
     <ClCompile Include="Source.cpp" />
   </ItemGroup>
   <ItemGroup>
@@ -150,6 +151,8 @@
     <ClInclude Include="KSBruteForce.h" />
     <ClInclude Include="KSItems.h" />
     <ClInclude Include="KSKnapsack.h" />
+    <ClInclude Include="List.h" />
+    <ClInclude Include="ListNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

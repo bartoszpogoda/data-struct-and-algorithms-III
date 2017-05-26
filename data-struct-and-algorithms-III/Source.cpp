@@ -1,13 +1,14 @@
-#include "KSItems.h"
+#include "KSKnapsack.h"
 #include <iostream>
 
 
 int main() {
-	KSItems ksItems = KSItems(2);
-	ksItems.addItem(1, 3);
-	ksItems.addItem(2, 4);
+	KSKnapsack knap;
 
-	std::cout << ksItems.toString();
+	knap.addItem(0, 42, 21);
+	knap.addItem(2, 51, 11);
+
+	std::cout << knap.toString();
 
 	int x;
 	std::cin >> x;

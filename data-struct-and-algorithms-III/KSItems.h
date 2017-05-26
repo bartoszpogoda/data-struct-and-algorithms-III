@@ -11,7 +11,7 @@ class KSItems {
 
 public:
 	KSItems(int size) : currentSize(0), size(size), weight(new unsigned[size]), value(new unsigned[size]) {}
-	KSItems() { delete[] weight; delete[] value; }
+	~KSItems() { delete[] weight; delete[] value; }
 
 	void addItem(unsigned weight, unsigned value) { this->weight[currentSize] = weight; this->value[currentSize++] = value; }
 
