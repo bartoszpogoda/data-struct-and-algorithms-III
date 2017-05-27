@@ -3,7 +3,7 @@
 
 class KSFullSearch : KSAlgorithm {
 	class RecursionStepResult;
-	RecursionStepResult recStep(KSItems* items, unsigned remainingCapacity, unsigned mask, unsigned i);
+	RecursionStepResult recStep(KSItems* items, unsigned remainingCapacity, unsigned i);
 
 public:
 	void execute(KSItems* items, unsigned capacity);

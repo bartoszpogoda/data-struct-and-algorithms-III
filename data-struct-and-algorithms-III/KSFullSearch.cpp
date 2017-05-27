@@ -2,9 +2,9 @@
 
 #include <sstream>
 
-KSFullSearch::RecursionStepResult KSFullSearch::recStep(KSItems * items, unsigned remainingCapacity, unsigned mask, unsigned i) {
+KSFullSearch::RecursionStepResult KSFullSearch::recStep(KSItems * items, unsigned remainingCapacity, unsigned i) {
 	if (i == -1) {
-		return RecursionStepResult(0, mask);
+		return RecursionStepResult(0, 0);
 	}
 
 	unsigned ithItemWeight = items->getItem(i).getWeight();
@@ -12,14 +12,14 @@ KSFullSearch::RecursionStepResult KSFullSearch::recStep(KSItems * items, unsigne
 
 	if (remainingCapacity < ithItemWeight) {
 		// cannot include i'th item case
-		return recStep(items, remainingCapacity, mask & ~(1 << i), i - 1);
+		return recStep(items, remainingCapacity, i - 1);
 	} else {
 		// can include i'th item case - decision to make
-		RecursionStepResult ithItemIncluded = recStep(items, remainingCapacity - ithItemWeight, mask | (1 << i), i - 1);
-		RecursionStepResult ithItemNotIncluded = recStep(items, remainingCapacity, mask, i - 1);		// mask is 000000 by default
+		RecursionStepResult ithItemIncluded = recStep(items, remainingCapacity - ithItemWeight, i - 1);
+		RecursionStepResult ithItemNotIncluded = recStep(items, remainingCapacity, i - 1);		// mask is 000000 by default
 
 		if (ithItemValue + ithItemIncluded.value > ithItemNotIncluded.value) {
-			return RecursionStepResult(ithItemIncluded.value + ithItemValue, ithItemIncluded.mask);
+			return RecursionStepResult(ithItemIncluded.value + ithItemValue, ithItemIncluded.mask | (1 << i));
 		} else {
 			return ithItemNotIncluded;
 		}
@@ -30,7 +30,7 @@ void KSFullSearch::execute(KSItems * items, unsigned capacity) {
 	delete result;
 	result = new KSKnapsack();
 
-	RecursionStepResult recursionResult = recStep(items, capacity, 0, items->getSize() - 1);
+	RecursionStepResult recursionResult = recStep(items, capacity, items->getSize() - 1);
 
 	unsigned itemsToTakeMask = recursionResult.mask;
 	unsigned currentMask = 1;
