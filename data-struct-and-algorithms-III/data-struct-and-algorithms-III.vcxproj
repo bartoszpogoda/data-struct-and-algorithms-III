@@ -142,7 +142,28 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="KSAlgorithm.cpp" />
+    <ClCompile Include="KSDynamic.cpp" />
+    <ClCompile Include="KSFullSearch.cpp" />
+    <ClCompile Include="KSGreedy.cpp" />
+    <ClCompile Include="KSItem.cpp" />
+    <ClCompile Include="KSItemHeapSort.cpp" />
+    <ClCompile Include="KSItems.cpp" />
+    <ClCompile Include="KSKnapsack.cpp" />
     <ClCompile Include="Source.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="KSAlgorithm.h" />
+    <ClInclude Include="KSDynamic.h" />
+    <ClInclude Include="KSFullSearch.h" />
+    <ClInclude Include="KSGreedy.h" />
+    <ClInclude Include="KSGreedyDecision.h" />
+    <ClInclude Include="KSItemHeapSort.h" />
+    <ClInclude Include="KSItem.h" />
+    <ClInclude Include="KSItems.h" />
+    <ClInclude Include="KSKnapsack.h" />
+    <ClInclude Include="List.h" />
+    <ClInclude Include="ListNode.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

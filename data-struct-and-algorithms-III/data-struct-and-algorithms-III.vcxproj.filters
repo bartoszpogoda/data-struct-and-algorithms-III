@@ -13,10 +13,93 @@
       <UniqueIdentifier>{67DA6AB6-F800-4c08-8B7A-83BB121AAD01}</UniqueIdentifier>
       <Extensions>rc;ico;cur;bmp;dlg;rc2;rct;bin;rgs;gif;jpg;jpeg;jpe;resx;tiff;tif;png;wav;mfcribbon-ms</Extensions>
     </Filter>
+    <Filter Include="Header Files\KS-problem">
+      <UniqueIdentifier>{9ec1317e-2806-4929-8469-99e3b5866968}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\KS-problem\structures">
+      <UniqueIdentifier>{d9d8a83e-9334-40dc-970e-e58b30dae523}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\KS-problem\algorithms">
+      <UniqueIdentifier>{fb3314d8-9f8f-428c-87d9-b6dc60a6e63b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\helper">
+      <UniqueIdentifier>{76ed10ba-e14c-4508-a39a-0e0dc9f3b349}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\KS-problem">
+      <UniqueIdentifier>{269a6671-4710-4132-a8a9-8f0defe5df2a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\KS-problem\structures">
+      <UniqueIdentifier>{8e5cfdbf-4818-4f6a-951e-63045cef7af3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\KS-problem\algorithms">
+      <UniqueIdentifier>{794465e1-80fa-4ed3-8539-b96e27fc73d1}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\KS-problem\algorithms\impl">
+      <UniqueIdentifier>{37def26f-898d-4d7e-88b2-83e0a12884ba}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="KSItems.cpp">
+      <Filter>Source Files\KS-problem\structures</Filter>
+    </ClCompile>
+    <ClCompile Include="KSKnapsack.cpp">
+      <Filter>Source Files\KS-problem\structures</Filter>
+    </ClCompile>
+    <ClCompile Include="KSAlgorithm.cpp">
+      <Filter>Source Files\KS-problem\algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="KSFullSearch.cpp">
+      <Filter>Source Files\KS-problem\algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="KSDynamic.cpp">
+      <Filter>Source Files\KS-problem\algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="KSItem.cpp">
+      <Filter>Source Files\KS-problem\structures</Filter>
+    </ClCompile>
+    <ClCompile Include="KSGreedy.cpp">
+      <Filter>Source Files\KS-problem\algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="KSItemHeapSort.cpp">
+      <Filter>Source Files\KS-problem\structures</Filter>
+    </ClCompile>
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="KSItems.h">
+      <Filter>Header Files\KS-problem\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="KSKnapsack.h">
+      <Filter>Header Files\KS-problem\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="List.h">
+      <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="ListNode.h">
+      <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="KSAlgorithm.h">
+      <Filter>Header Files\KS-problem\algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="KSFullSearch.h">
+      <Filter>Header Files\KS-problem\algorithms\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="KSDynamic.h">
+      <Filter>Header Files\KS-problem\algorithms\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="KSGreedy.h">
+      <Filter>Header Files\KS-problem\algorithms\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="KSItem.h">
+      <Filter>Header Files\KS-problem\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="KSGreedyDecision.h">
+      <Filter>Header Files\KS-problem\algorithms\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="KSItemHeapSort.h">
+      <Filter>Header Files\KS-problem\structures</Filter>
+    </ClInclude>
   </ItemGroup>
 </Project>
