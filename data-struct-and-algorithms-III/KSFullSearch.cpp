@@ -45,7 +45,7 @@ void KSFullSearch::execute(KSItems * items, unsigned capacity) {
 std::string KSFullSearch::toString() {
 	std::stringstream out;
 
-	out << "Solution" << std::endl << "Full Search" << std::endl << result->toString();
+	out << "Solution" << std::endl << "Full Search" << std::endl << (result == nullptr ? "No result" : result->toString());
 
 	return out.str();
 }

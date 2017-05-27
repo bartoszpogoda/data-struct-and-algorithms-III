@@ -60,6 +60,12 @@
     <ClCompile Include="KSItem.cpp">
       <Filter>Source Files\KS-problem\structures</Filter>
     </ClCompile>
+    <ClCompile Include="KSGreedy.cpp">
+      <Filter>Source Files\KS-problem\algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="KSItemHeapSort.cpp">
+      <Filter>Source Files\KS-problem\structures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KSItems.h">
@@ -87,6 +93,12 @@
       <Filter>Header Files\KS-problem\algorithms\impl</Filter>
     </ClInclude>
     <ClInclude Include="KSItem.h">
+      <Filter>Header Files\KS-problem\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="KSGreedyDecision.h">
+      <Filter>Header Files\KS-problem\algorithms\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="KSItemHeapSort.h">
       <Filter>Header Files\KS-problem\structures</Filter>
     </ClInclude>
   </ItemGroup>

@@ -18,6 +18,7 @@ public:
 
 	unsigned getSize() { return size; }
 	KSItem getItem(int id) { return items[id]; }
+	KSItem* getItems() { return items; }
 
 	std::string toString();
 };

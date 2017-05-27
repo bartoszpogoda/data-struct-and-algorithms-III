@@ -76,7 +76,7 @@ void KSDynamic::execute(KSItems * items, unsigned capacity) {
 std::string KSDynamic::toString() {
 	std::stringstream out;
 
-	out << "Solution" << std::endl << "Dynamic Programming Based" << std::endl << result->toString();
+	out << "Solution" << std::endl << "Dynamic Programming Based" << std::endl << (result == nullptr ? "No result" : result->toString());
 
 	return out.str();
 }

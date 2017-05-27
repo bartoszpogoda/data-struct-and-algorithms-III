@@ -1,28 +1,23 @@
 #pragma once
 #include "KSAlgorithm.h"
-#include "KSItem.h"
+#include "KSGreedyDecision.h"
 
-class KSItemDecision;
+#include <string>
 
+
+/*
+	Pointer to decision strategy is dealocated inside of this class
+	both on strategy change and destruction
+*/
 class KSGreedy : KSAlgorithm {
-	KSItemDecision& strategy;
+	// swichable with strategy pattern
+	KSGreedyDecision* itemDecision;
 public:
-	void setPickStrategy(KSItemDecision& strategy) { this->strategy = strategy; }
+	KSGreedy() : KSAlgorithm(), itemDecision(nullptr) {}
+	~KSGreedy() { delete itemDecision; }
+
+	void setItemDecision(KSGreedyDecision* itemDecision) { delete this->itemDecision; this->itemDecision = itemDecision; }
 
 	void execute(KSItems* items, unsigned capacity);
 	std::string toString();
-};
-
-class KSItemDecision {
-public:
-	// returns true if item a is classified as "better"
-	virtual bool decide(KSItem a, KSItem b) = 0;	
-};
-
-class KSItemDecisionValue : KSItemDecision {
-	bool decide(KSItem a, KSItem b) { return a.getValue() > b.getValue; }
-};
-
-class KSItemDecisionValueToWeight : KSItemDecision {
-	bool decide(KSItem a, KSItem b) { return (a.getValue())/(a.getWeight()) > (b.getValue())/(b.getWeight()); }
 };
