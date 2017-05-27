@@ -32,17 +32,20 @@ void KSDynamic::execute(KSItems * items, unsigned capacity) {
 
 	// calculations for each item 
 	for (size_t item = 0; item < items->getSize(); item++) {
+		unsigned itemValue = items->getItem(item).getValue();
+		unsigned itemWeight = items->getItem(item).getWeight();
+
 		// calculations for each (assumed) final weight
 		for (size_t maxWeight = 1; maxWeight <= capacity; maxWeight++) {
 
-			if (items->getWeight(item) > maxWeight) {
+			if (itemWeight > maxWeight) {
 				// item cannot be included case (item+1 index because of guardian row)
 				resultTable[maxWeight][item + 1] = resultTable[maxWeight][item];
 			} else {
 				// item can be included case - decision to make
-				if (items->getValue(item) + resultTable[maxWeight - items->getWeight(item)][item] > resultTable[maxWeight][item]) {
+				if (itemValue + resultTable[maxWeight - itemWeight][item] > resultTable[maxWeight][item]) {
 					// should be included case
-					resultTable[maxWeight][item + 1] = items->getValue(item) + resultTable[maxWeight - items->getWeight(item)][item];
+					resultTable[maxWeight][item + 1] = itemValue + resultTable[maxWeight - itemWeight][item];
 				} else {
 					resultTable[maxWeight][item + 1] = resultTable[maxWeight][item];
 				}
@@ -56,8 +59,8 @@ void KSDynamic::execute(KSItems * items, unsigned capacity) {
 		// if optimal value wasn't taken from upper cell - the item was included
 		if (resultTable[maxWeight][item] != resultTable[maxWeight][item - 1]) {
 			// adding to front because we are checking items in reverse order 
-			result->addItemFront(item - 1, items->getWeight(item - 1), items->getValue(item - 1));
-			maxWeight -= items->getWeight(item - 1);
+			result->addItemFront(items->getItem(item-1));
+			maxWeight -= items->getItem(item - 1).getWeight();
 		} 
 
 		item -= 1;

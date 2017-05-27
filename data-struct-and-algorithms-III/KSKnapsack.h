@@ -1,5 +1,7 @@
 #pragma once
 #include "List.h"
+#include "KSItem.h"
+
 #include <string>
 #include <climits>
 
@@ -8,22 +10,14 @@
 */
 class KSKnapsack {
 
-	class KSKnapsackItem {
-	public:
-		unsigned id, weight, value;
-		KSKnapsackItem() : id(UINT_MAX), weight(UINT_MAX), value(UINT_MAX) {}
-		KSKnapsackItem(unsigned id, unsigned weight, unsigned value) : id(id), weight(weight), value(value) {}
-	};
-
-	List<KSKnapsackItem> *knapsackItems;
+	List<KSItem> *knapsackItems;
 
 public:
-	KSKnapsack() : knapsackItems(new List<KSKnapsackItem>()) {}	
+	KSKnapsack() : knapsackItems(new List<KSItem>()) {}
 	~KSKnapsack() { delete knapsackItems; }
 
-	void addItemFront(unsigned id, unsigned weight, unsigned value);
-	void addItemEnd(unsigned id, unsigned weight, unsigned value);
-	// todo: item access
+	void addItemFront(KSItem item);
+	void addItemEnd(KSItem item);
 
 	std::string toString();
 };

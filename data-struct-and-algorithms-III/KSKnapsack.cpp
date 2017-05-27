@@ -3,12 +3,12 @@
 #include <sstream>
 #include <iomanip>
 
-void KSKnapsack::addItemFront(unsigned id, unsigned weight, unsigned value) {
-	knapsackItems->addFront(KSKnapsackItem(id, weight, value));
+void KSKnapsack::addItemFront(KSItem item) {
+	knapsackItems->addFront(item);
 }
 
-void KSKnapsack::addItemEnd(unsigned id, unsigned weight, unsigned value) {
-	knapsackItems->addEnd(KSKnapsackItem(id, weight, value));
+void KSKnapsack::addItemEnd(KSItem item) {
+	knapsackItems->addEnd(item);
 }
 
 
@@ -29,12 +29,10 @@ std::string KSKnapsack::toString() {
 
 	out << std::setfill(' ');
 	for (size_t i = 0; i < knapsackItems->size(); i++) {
-		out << std::setw(argWidth) << knapsackItems->get(i).id << "  ";
-		out << std::setw(argWidth) << knapsackItems->get(i).weight << "  ";
-		out << std::setw(argWidth) << knapsackItems->get(i).value << "  " << std::endl;
+		out << knapsackItems->get(i).toString();
 
-		totalWeight += knapsackItems->get(i).weight;
-		totalValue += knapsackItems->get(i).value;
+		totalWeight += knapsackItems->get(i).getWeight();
+		totalValue += knapsackItems->get(i).getValue();
 	}
 
 	out << std::setfill('-') << std::setw(3 * argWidth + 2 * 2) << "" << std::endl;

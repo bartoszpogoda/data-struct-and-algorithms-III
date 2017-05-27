@@ -22,11 +22,11 @@ int main() {
 		std::cout << items->toString() << std::endl;
 
 		algorithm.execute(items, capacity);
-		std::cout << algorithm.toString();
+		std::cout << algorithm.toString() << std::endl;
 
 		KSDynamic algorithmDynamic;
 		algorithmDynamic.execute(items, capacity);
-		std::cout << algorithmDynamic.toString();
+		std::cout << algorithmDynamic.toString() << std::endl;
 
 		delete items;
 	}

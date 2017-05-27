@@ -57,6 +57,9 @@
     <ClCompile Include="KSDynamic.cpp">
       <Filter>Source Files\KS-problem\algorithms</Filter>
     </ClCompile>
+    <ClCompile Include="KSItem.cpp">
+      <Filter>Source Files\KS-problem\structures</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KSItems.h">
@@ -79,6 +82,12 @@
     </ClInclude>
     <ClInclude Include="KSDynamic.h">
       <Filter>Header Files\KS-problem\algorithms\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="KSGreedy.h">
+      <Filter>Header Files\KS-problem\algorithms\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="KSItem.h">
+      <Filter>Header Files\KS-problem\structures</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

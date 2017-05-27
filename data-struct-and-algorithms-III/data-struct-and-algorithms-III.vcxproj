@@ -145,6 +145,7 @@
     <ClCompile Include="KSAlgorithm.cpp" />
     <ClCompile Include="KSDynamic.cpp" />
     <ClCompile Include="KSFullSearch.cpp" />
+    <ClCompile Include="KSItem.cpp" />
     <ClCompile Include="KSItems.cpp" />
     <ClCompile Include="KSKnapsack.cpp" />
     <ClCompile Include="Source.cpp" />
@@ -153,6 +154,8 @@
     <ClInclude Include="KSAlgorithm.h" />
     <ClInclude Include="KSDynamic.h" />
     <ClInclude Include="KSFullSearch.h" />
+    <ClInclude Include="KSGreedy.h" />
+    <ClInclude Include="KSItem.h" />
     <ClInclude Include="KSItems.h" />
     <ClInclude Include="KSKnapsack.h" />
     <ClInclude Include="List.h" />

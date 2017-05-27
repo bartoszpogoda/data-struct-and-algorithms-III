@@ -1,4 +1,5 @@
 #pragma once
+#include "KSItem.h"
 
 #include <string>
 /*
@@ -6,18 +7,17 @@
 	It's not safe, indexes must be validated outside
 */
 class KSItems {
-	unsigned size, *weight, *value;
-	unsigned currentSize;
+	KSItem * items;
+	unsigned size, currentSize;
 
 public:
-	KSItems(int size) : currentSize(0), size(size), weight(new unsigned[size]), value(new unsigned[size]) {}
-	~KSItems() { delete[] weight; delete[] value; }
+	KSItems(int size) : currentSize(0), size(size), items(new KSItem[size]) {}
+	~KSItems() { delete[] items;  }
 
-	void addItem(unsigned weight, unsigned value) { this->weight[currentSize] = weight; this->value[currentSize++] = value; }
+	void addItem(unsigned weight, unsigned value) { items[currentSize] = KSItem(currentSize, weight, value); currentSize++; }
 
 	unsigned getSize() { return size; }
-	unsigned getWeight(int i) { return weight[i]; }
-	unsigned getValue(int i) { return value[i]; }
+	KSItem getItem(int id) { return items[id]; }
 
 	std::string toString();
 };

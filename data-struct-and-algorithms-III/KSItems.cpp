@@ -18,9 +18,7 @@ std::string KSItems::toString() {
 
 	out << std::setfill(' ');
 	for (size_t i = 0; i < currentSize; i++) {
-		out << std::setw(argWidth) << i << "  ";
-		out << std::setw(argWidth) << weight[i] << "  ";
-		out << std::setw(argWidth) << value[i] << "  " << std::endl;
+		out << items[i].toString();
 	}
 
 	return out.str();
