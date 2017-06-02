@@ -15,6 +15,9 @@ using namespace std;
 
 void CLInterface::enter() {
 	viewMainMenu();
+
+	delete ksFileReader;
+	delete tsFileReader;
 }
 
 int CLInterface::handleUserInput() {
@@ -180,6 +183,7 @@ void CLInterface::viewExecuteTS() {
 	std::cout << tsls.toString() << std::endl;
 
 	delete greedyResult;
+	delete cities;
 
 	handleUserInput();
 }
