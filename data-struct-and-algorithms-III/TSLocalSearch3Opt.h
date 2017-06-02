@@ -4,6 +4,9 @@
 
 class TSLocalSearch3Opt : public TSAlgorithm {
 	TSPath* initPath;
+
+	unsigned* generateRandomPath(unsigned pathSize);
+
 public:
 	void execute(AdjacencyMatrix* cities);
 

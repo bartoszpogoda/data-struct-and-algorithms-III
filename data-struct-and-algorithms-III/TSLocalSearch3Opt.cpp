@@ -3,25 +3,48 @@
 #include <sstream>
 #include <iomanip>
 #include <iostream>
+unsigned * TSLocalSearch3Opt::generateRandomPath(unsigned pathSize) {
+	unsigned* path = new unsigned[pathSize];
+
+	// the first and the last nodes
+	path[0] = path[pathSize - 1] = 0;
+
+	// rest of the nodes 1...pathSize-1
+	unsigned unusedSize = pathSize - 2;
+	unsigned* unused = new unsigned[unusedSize];
+	for (size_t i = 0; i < unusedSize; i++) {
+		unused[i] = i + 1;
+	}
+
+	unsigned i = 1,randomIndex = -1;
+	while (unusedSize > 0) {
+
+		randomIndex = rand() % unusedSize;
+		path[i++] = unused[randomIndex];
+		unused[randomIndex] = unused[unusedSize - 1];
+		unusedSize--;
+	}
+
+	delete[] unused;
+	return path;
+}
 void TSLocalSearch3Opt::execute(AdjacencyMatrix * cities) {
 	delete result;
 
-	unsigned pathSize = initPath->getsize();
-	unsigned* path = new unsigned[pathSize];
-	for (size_t i = 0; i < pathSize; i++) {
-		path[i] = initPath->get(i);
+	unsigned pathSize = cities->getSize() + 1;
+	unsigned* path;
+
+	if (initPath != nullptr) {
+		// preset init path
+		path = new unsigned[pathSize];
+		for (size_t i = 0; i < pathSize; i++)
+			path[i] = initPath->get(i);
+
+	} else {
+		// random init path
+		path = generateRandomPath(pathSize);
 	}
-	//unsigned pathSize = cities->getSize() + 1;
-	//unsigned* path = new unsigned[pathSize];
 
-	/*path[0] = path[pathSize-1] =  0;
-
-	// for debug 
-	for (size_t i = 1; i < pathSize - 1; i++) {
-		path[i] = i;
-	}*/
-
-	// 0 -> a -> [b] -> c -> [d] -> e -> [f] -> 0
 	int iterationMinChange = 0;
 	int bestI, bestJ, bestK;
 	do {
@@ -30,7 +53,8 @@ void TSLocalSearch3Opt::execute(AdjacencyMatrix * cities) {
 		for (size_t i = 1; i < pathSize - 5; i++) {
 			for (size_t j = i + 2; j < pathSize - 3; j++) {
 				for (size_t k = j + 2; k < pathSize - 1; k++) {
-					// iteration through all possible 3's of edges
+					// iteration through all possible 3's of edges selections
+					// last one: 0 -> a -> ... -> [b] -> c -> [d] -> e -> [f] -> 0
 					int oldDist = cities->getEdge(path[i], path[i + 1])
 						+ cities->getEdge(path[j], path[j + 1])
 						+ cities->getEdge(path[k], path[k + 1]);
@@ -48,7 +72,7 @@ void TSLocalSearch3Opt::execute(AdjacencyMatrix * cities) {
 		}
 
 		if (iterationMinChange < 0) {
-			// swap with the best one
+			// execute swap
 			unsigned* newPath = new unsigned[pathSize];
 			unsigned dest = 0;
 
@@ -79,7 +103,7 @@ void TSLocalSearch3Opt::execute(AdjacencyMatrix * cities) {
 std::string TSLocalSearch3Opt::toString() {
 	std::stringstream out;
 
-	out << "Solution" << std::endl << "Local Search 2-opt" << std::endl;
+	out << "Solution" << std::endl << "Local Search 2-opt" << (initPath == nullptr ? " (random init)" : " (preset init)") << std::endl;
 	out << std::setfill('-') << std::setw(19) << "" << std::endl;
 	out << (result == nullptr ? "No result" : result->toString());
 

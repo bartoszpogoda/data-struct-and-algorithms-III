@@ -86,6 +86,10 @@ int main() {
 		tsls.execute(cities);
 		std::cout << tsls.toString() << std::endl;
 
+		tsls.setInitPath(nullptr);
+		tsls.execute(cities);
+		std::cout << tsls.toString() << std::endl;
+
 		delete greedyResult;
 	}
 
