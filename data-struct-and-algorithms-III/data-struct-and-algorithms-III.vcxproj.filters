@@ -61,6 +61,12 @@
     <Filter Include="Header Files\TS-problem\algorithms\impl">
       <UniqueIdentifier>{56b49370-c855-429c-9a18-36dfb5d046b4}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\input">
+      <UniqueIdentifier>{a35ddaad-c643-4c41-b942-a72095d9742a}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\input">
+      <UniqueIdentifier>{d288410f-737d-4e64-99f9-edf5c10024eb}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -107,6 +113,12 @@
     </ClCompile>
     <ClCompile Include="TSLocalSearch3Opt.cpp">
       <Filter>Source Files\TS-problem\algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="KSFileReader.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="TSFileReader.cpp">
+      <Filter>Source Files\input</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -160,6 +172,12 @@
     </ClInclude>
     <ClInclude Include="TSLocalSearch3Opt.h">
       <Filter>Header Files\TS-problem\algorithms\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="KSFileReader.h">
+      <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="TSFileReader.h">
+      <Filter>Header Files\input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
