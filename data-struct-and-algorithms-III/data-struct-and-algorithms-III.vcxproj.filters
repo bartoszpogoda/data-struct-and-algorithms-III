@@ -126,6 +126,9 @@
     <ClCompile Include="CLInterface.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="RandomInstanceGenerator.cpp">
+      <Filter>Source Files\input</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KSItems.h">
@@ -187,6 +190,9 @@
     </ClInclude>
     <ClInclude Include="CLInterface.h">
       <Filter>Header Files\CLI</Filter>
+    </ClInclude>
+    <ClInclude Include="RandomInstanceGenerator.h">
+      <Filter>Header Files\input</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
