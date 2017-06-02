@@ -1,7 +1,8 @@
 #include "TSPath.h"
 
-#include <sstream>
 #include <iomanip>
+#include <sstream>
+
 
 void TSPath::add(unsigned pathNode) {
 	if (currentSize != size)

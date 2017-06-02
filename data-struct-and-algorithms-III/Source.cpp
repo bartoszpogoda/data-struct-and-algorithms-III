@@ -4,6 +4,7 @@
 #include "KSGreedy.h"
 
 #include "TSFullSearch.h"
+#include "TSGreedy.h"
 #include <iostream>
 #include <ctime>
 
@@ -50,15 +51,17 @@ int main() {
 	}
 
 	{
-		// TS PROBLEM DEMO
+	// TS PROBLEM DEMO
 
-		srand(time(nullptr));
+	TSFullSearch tsfs;
+	TSGreedy tsgr;
 
-		int n = 12;	
+	srand(time(nullptr));
+		int n = 8;
 		AdjacencyMatrix* cities = new AdjacencyMatrix(n);
 		for (size_t i = 0; i < n; i++) {
 			for (size_t j = 0; j < n; j++) {
-				if(i != j) cities->addEdge(i, j, rand() % 100);
+				if (i != j) cities->addEdge(i, j, rand() % 100);
 			}
 		}
 
@@ -68,9 +71,12 @@ int main() {
 		std::cout << cities->toString();
 
 
-		TSFullSearch tsfs;
 		tsfs.execute(cities);
-		std::cout << tsfs.toString();
+		std::cout << tsfs.toString() << std::endl;
+
+		tsgr.execute(cities);
+		std::cout << tsgr.toString() << std::endl;
+		
 	}
 
 	int x;

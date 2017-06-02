@@ -154,8 +154,8 @@
     <ClCompile Include="Source.cpp" />
     <ClCompile Include="TSAlgorithm.cpp" />
     <ClCompile Include="TSFullSearch.cpp" />
+    <ClCompile Include="TSGreedy.cpp" />
     <ClCompile Include="TSPath.cpp" />
-    <ClCompile Include="TSPath.h" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="AdjacencyMatrix.h" />
@@ -172,6 +172,8 @@
     <ClInclude Include="ListNode.h" />
     <ClInclude Include="TSAlgorithm.h" />
     <ClInclude Include="TSFullSearch.h" />
+    <ClInclude Include="TSGreedy.h" />
+    <ClInclude Include="TSPath.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
