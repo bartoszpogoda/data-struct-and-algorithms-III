@@ -1,7 +1,7 @@
 #pragma once
 #include "KSAlgorithm.h"
 
-class KSFullSearch : KSAlgorithm {
+class KSFullSearch : public KSAlgorithm {
 	class RecursionStepResult;
 	RecursionStepResult recStep(KSItems* items, unsigned remainingCapacity, unsigned i);
 

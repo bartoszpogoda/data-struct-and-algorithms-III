@@ -135,6 +135,9 @@
     <ClCompile Include="Timer.cpp">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="PerformanceTester.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KSItems.h">
@@ -201,6 +204,9 @@
       <Filter>Header Files\input</Filter>
     </ClInclude>
     <ClInclude Include="Timer.h">
+      <Filter>Header Files\performance</Filter>
+    </ClInclude>
+    <ClInclude Include="PerformanceTester.h">
       <Filter>Header Files\performance</Filter>
     </ClInclude>
   </ItemGroup>
