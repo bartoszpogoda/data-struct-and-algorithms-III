@@ -112,7 +112,7 @@ void TSLocalSearch3Opt::execute(AdjacencyMatrix * cities) {
 std::string TSLocalSearch3Opt::toString() {
 	std::stringstream out;
 
-	out << "Solution" << std::endl << "Local Search 2-opt" << (initPath == nullptr ? " (random init)" : " (preset init)") << std::endl;
+	out << "Solution" << std::endl << "Local Search 3-opt" << (initPath == nullptr ? " (random init)" : " (preset init)") << std::endl;
 	out << std::setfill('-') << std::setw(19) << "" << std::endl;
 	out << (result == nullptr ? "No result" : result->toString());
 

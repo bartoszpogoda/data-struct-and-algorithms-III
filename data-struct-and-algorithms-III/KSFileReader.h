@@ -16,7 +16,7 @@ public:
 
 
 	unsigned getCapacity() { return capacity; }
-	KSItems* getItems() { return items; items = nullptr; }
+	KSItems* getItems();
 
 	// read status
 	bool success() { return !errorFlag; }

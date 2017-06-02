@@ -49,3 +49,9 @@ void TSFileReader::read(std::string filename) {
 TSFileReader::TSFileReader(std::string filename) : cities(nullptr), errorFlag(false){
 	read(filename);
 }
+
+AdjacencyMatrix * TSFileReader::getCities() {
+	AdjacencyMatrix* cities = this->cities;
+	this->cities = nullptr;
+	return cities;
+}

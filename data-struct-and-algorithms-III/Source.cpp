@@ -10,10 +10,14 @@
 #include "KSFileReader.h"
 #include "TSFileReader.h"
 
+#include "CLInterface.h"
+
 #include <iostream>
 #include <ctime>
 
 int main() {
+
+	CLInterface::enter();
 
 	KSFileReader reader("ksinput.txt");
 	std::cout << reader.getItems()->toString() << " CAP: " << reader.getCapacity();
