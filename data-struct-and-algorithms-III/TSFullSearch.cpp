@@ -3,11 +3,12 @@
 #include <sstream>
 #include <string>
 #include <iomanip>
+#include <iostream>
 
 
 TSFullSearch::RecursionStepResult TSFullSearch::recStep(AdjacencyMatrix * cities, unsigned* unvisited, unsigned unvisitedSize, unsigned previousNode) {
 	if (unvisitedSize == 0) {
-		return RecursionStepResult(nullptr, 0, 0);
+		return RecursionStepResult(nullptr, 0, cities->getEdge(previousNode,0));
 	}
 
 	unsigned bestDistance = UINT_MAX;
@@ -57,11 +58,8 @@ void TSFullSearch::execute(AdjacencyMatrix * cities) {
 	// recursion 
 	RecursionStepResult recursionResult = recStep(cities, unvisited, unvisitedSize, startNode);
 		
-	unsigned resultPathLastNode = recursionResult.path[0];
-	unsigned distance = recursionResult.distance + cities->getEdge(resultPathLastNode, startNode);
-
 	// save result (in reversed order) append start node to finish loop
-	result = new TSPath(recursionResult.pathSize + 2, distance);
+	result = new TSPath(recursionResult.pathSize + 2, recursionResult.distance);
 	result->add(startNode);
 	for (int i = recursionResult.pathSize - 1 ; i >= 0; i--) {
 		result->add(recursionResult.path[i]);
