@@ -45,50 +45,28 @@ void TSFullSearch::execute(AdjacencyMatrix * cities) {
 	delete result;
 	result = nullptr;
 
-	// variables and structures to keep track about current best path
-	unsigned bestDistance = UINT_MAX;
-	unsigned bestPathSize;
-	unsigned *bestPath = nullptr;
-
-	// all nodes are unvisited at beginning
-	unsigned unvisitedSize = cities->getSize();
+	// all nodes (except for node 0) are unvisited at beginning
+	unsigned unvisitedSize = cities->getSize() - 1;
 	unsigned *unvisited = new unsigned[unvisitedSize];
 	for (size_t i = 0; i < cities->getSize(); i++) {
-		unvisited[i] = i;
+		unvisited[i] = i+1;
 	}
 
-	// start recurrency for each (start) node - find the best path
-	for (size_t i = 0; i < unvisitedSize; i++) {
-		unsigned startNode = unvisited[i];
-		unvisited[i] = unvisited[unvisitedSize - 1];
+	unsigned startNode = 0;
 
-		// recursion with unvisitedSize - 1
-		RecursionStepResult result = recStep(cities, unvisited, unvisitedSize - 1, startNode);
+	// recursion 
+	RecursionStepResult recursionResult = recStep(cities, unvisited, unvisitedSize, startNode);
 		
-		unsigned resultPathLastNode = result.path[0];
-
-		if (result.distance + cities->getEdge(resultPathLastNode, startNode) < bestDistance) {
-			bestDistance = result.distance + cities->getEdge(resultPathLastNode, startNode);
-
-			bestPathSize = result.pathSize + 1;
-			delete[] bestPath;
-			bestPath = new unsigned[bestPathSize];
-			for (size_t j = 0; j < bestPathSize - 1; j++) {
-				bestPath[j] = result.path[j];
-			}
-			bestPath[bestPathSize - 1] = startNode;
-		}
-
-		// return state of unvisited before next iteration
-		unvisited[i] = startNode;
-	}
+	unsigned resultPathLastNode = recursionResult.path[0];
+	unsigned distance = recursionResult.distance + cities->getEdge(resultPathLastNode, startNode);
 
 	// save result (in reversed order) append start node to finish loop
-	result = new TSPath(bestPathSize + 1, bestDistance);
-	for (int i = bestPathSize - 1 ; i >= 0; i--) {
-		result->add(bestPath[i]);
+	result = new TSPath(recursionResult.pathSize + 2, distance);
+	result->add(startNode);
+	for (int i = recursionResult.pathSize - 1 ; i >= 0; i--) {
+		result->add(recursionResult.path[i]);
 	}
-	result->add(bestPath[bestPathSize - 1]);
+	result->add(startNode);
 }
 
 std::string TSFullSearch::toString() {
