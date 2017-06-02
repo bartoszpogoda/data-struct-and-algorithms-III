@@ -142,6 +142,7 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="AdjacencyMatrix.cpp" />
     <ClCompile Include="KSAlgorithm.cpp" />
     <ClCompile Include="KSDynamic.cpp" />
     <ClCompile Include="KSFullSearch.cpp" />
@@ -151,8 +152,13 @@
     <ClCompile Include="KSItems.cpp" />
     <ClCompile Include="KSKnapsack.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="TSAlgorithm.cpp" />
+    <ClCompile Include="TSFullSearch.cpp" />
+    <ClCompile Include="TSPath.cpp" />
+    <ClCompile Include="TSPath.h" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="AdjacencyMatrix.h" />
     <ClInclude Include="KSAlgorithm.h" />
     <ClInclude Include="KSDynamic.h" />
     <ClInclude Include="KSFullSearch.h" />
@@ -164,6 +170,8 @@
     <ClInclude Include="KSKnapsack.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="ListNode.h" />
+    <ClInclude Include="TSAlgorithm.h" />
+    <ClInclude Include="TSFullSearch.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

@@ -37,6 +37,30 @@
     <Filter Include="Header Files\KS-problem\algorithms\impl">
       <UniqueIdentifier>{37def26f-898d-4d7e-88b2-83e0a12884ba}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\TS-Problem">
+      <UniqueIdentifier>{4e104877-9c6a-4e11-881d-bac4ce4afad8}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TS-Problem\structures">
+      <UniqueIdentifier>{ca6843fc-b3dc-4227-83db-e63c7e5e0c12}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TS-Problem\algorithms">
+      <UniqueIdentifier>{6ba327b6-e6f9-4188-a9d1-4239851b0de3}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Header Files\TS-Problem\algorithms\impl">
+      <UniqueIdentifier>{56b49370-c855-429c-9a18-36dfb5d046b4}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TS-problem">
+      <UniqueIdentifier>{7e89d127-4759-4e1a-b5ed-06e604699560}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TS-problem\algorithms">
+      <UniqueIdentifier>{d3137543-b974-49d9-905a-c6447c659665}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\TS-problem\structures">
+      <UniqueIdentifier>{d5e6054b-4ed5-44f4-802f-134d03afbd7b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\helper">
+      <UniqueIdentifier>{d4eda614-0b68-438a-b009-cef77f2db472}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -65,6 +89,21 @@
     </ClCompile>
     <ClCompile Include="KSItemHeapSort.cpp">
       <Filter>Source Files\KS-problem\structures</Filter>
+    </ClCompile>
+    <ClCompile Include="TSPath.h">
+      <Filter>Header Files\TS-Problem\structures</Filter>
+    </ClCompile>
+    <ClCompile Include="TSAlgorithm.cpp">
+      <Filter>Source Files\TS-problem\algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="TSFullSearch.cpp">
+      <Filter>Source Files\TS-problem\algorithms</Filter>
+    </ClCompile>
+    <ClCompile Include="TSPath.cpp">
+      <Filter>Source Files\TS-problem\structures</Filter>
+    </ClCompile>
+    <ClCompile Include="AdjacencyMatrix.cpp">
+      <Filter>Source Files\helper</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -100,6 +139,15 @@
     </ClInclude>
     <ClInclude Include="KSItemHeapSort.h">
       <Filter>Header Files\KS-problem\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="TSFullSearch.h">
+      <Filter>Header Files\TS-Problem\algorithms\impl</Filter>
+    </ClInclude>
+    <ClInclude Include="AdjacencyMatrix.h">
+      <Filter>Header Files\helper</Filter>
+    </ClInclude>
+    <ClInclude Include="TSAlgorithm.h">
+      <Filter>Header Files\TS-Problem\algorithms</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
