@@ -7,10 +7,20 @@
 #include "TSGreedy.h"
 #include "TSLocalSearch3Opt.h"
 
+#include "KSFileReader.h"
+#include "TSFileReader.h"
+
 #include <iostream>
 #include <ctime>
 
 int main() {
+
+	KSFileReader reader("ksinput.txt");
+	std::cout << reader.getItems()->toString() << " CAP: " << reader.getCapacity();
+
+	TSFileReader tsReader("tsinput.txt");
+	std::cout << std::endl << tsReader.getCities()->toString();
+
 
 	{
 		// KS PROBLEM DEMO
