@@ -2,7 +2,7 @@
 #include <climits>
 #include <sstream>
 #include <iomanip>
-#include <iostream>
+
 unsigned * TSLocalSearch3Opt::generateRandomPath(unsigned pathSize) {
 	unsigned* path = new unsigned[pathSize];
 
@@ -28,6 +28,29 @@ unsigned * TSLocalSearch3Opt::generateRandomPath(unsigned pathSize) {
 	delete[] unused;
 	return path;
 }
+/* 
+	[ start..i ][i][ i..j ][j][ j..k ][k][ k..end]
+			to
+	[ start..i ][i][ j..k ][k][ i..j ][j][ k..end]
+*/
+unsigned * TSLocalSearch3Opt::swapPath(unsigned * path, unsigned pathSize, unsigned bestI, unsigned bestJ, unsigned bestK) {
+	// execute swap
+	unsigned* newPath = new unsigned[pathSize];
+	unsigned dest = 0;
+
+	for (size_t i = 0; i <= bestI; i++)
+		newPath[dest++] = path[i];
+	for (size_t i = bestJ + 1; i <= bestK; i++)
+		newPath[dest++] = path[i];
+	for (size_t i = bestI + 1; i <= bestJ; i++)
+		newPath[dest++] = path[i];
+	for (size_t i = bestK + 1; i < pathSize; i++)
+		newPath[dest++] = path[i];
+
+	delete[] path;
+	return newPath;
+}
+
 void TSLocalSearch3Opt::execute(AdjacencyMatrix * cities) {
 	delete result;
 
@@ -72,21 +95,7 @@ void TSLocalSearch3Opt::execute(AdjacencyMatrix * cities) {
 		}
 
 		if (iterationMinChange < 0) {
-			// execute swap
-			unsigned* newPath = new unsigned[pathSize];
-			unsigned dest = 0;
-
-			for (size_t i = 0; i <= bestI; i++)
-				newPath[dest++] = path[i];
-			for (size_t i = bestJ + 1; i <= bestK; i++)
-				newPath[dest++] = path[i];
-			for (size_t i = bestI + 1; i <= bestJ; i++)
-				newPath[dest++] = path[i];
-			for (size_t i = bestK + 1; i < pathSize; i++)
-				newPath[dest++] = path[i];
-
-			delete[] path;
-			path = newPath;
+			path = swapPath(path, pathSize, bestI, bestJ, bestK);
 		}
 
 	} while (iterationMinChange < 0);
