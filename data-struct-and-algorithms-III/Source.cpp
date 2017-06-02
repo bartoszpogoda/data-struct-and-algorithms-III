@@ -3,10 +3,18 @@
 #include "KSItems.h"
 #include "KSGreedy.h"
 
+#include "TSFullSearch.h"
+#include "TSGreedy.h"
+#include "TSLocalSearch3Opt.h"
+
 #include <iostream>
+#include <ctime>
 
 int main() {
+
 	{
+		// KS PROBLEM DEMO
+
 		KSFullSearch fullSearch;
 		KSDynamic dynamic;
 		KSGreedy greedy;
@@ -21,6 +29,7 @@ int main() {
 		items->addItem(14, 34);
 		items->addItem(30, 44);
 
+		std::cout << "-- Knapsack Problem: " << std::endl;
 		std::cout << "Capacity: " << capacity << std::endl;
 		std::cout << items->toString() << std::endl;
 
@@ -42,6 +51,46 @@ int main() {
 		std::cout << greedy.toString() << std::endl;
 
 		delete items;
+	}
+
+	{
+		// TS PROBLEM DEMO
+
+		TSFullSearch tsfs;
+		TSGreedy tsgr;
+		TSLocalSearch3Opt tsls;
+
+		srand(time(nullptr));
+		int n = 9;
+		AdjacencyMatrix* cities = new AdjacencyMatrix(n);
+		for (size_t i = 0; i < n; i++) {
+			for (size_t j = 0; j < n; j++) {
+				if (i != j) cities->addEdge(i, j, rand() % 100);
+			}
+		}
+
+		std::cout << "-- TS Problem: " << std::endl;
+		std::cout << "Number of cities: " << cities->getSize() << std::endl << std::endl;
+		std::cout << cities->toString();
+
+
+		tsfs.execute(cities);
+		std::cout << tsfs.toString() << std::endl;
+
+		tsgr.execute(cities);
+		std::cout << tsgr.toString() << std::endl;
+
+		TSPath* greedyResult = tsgr.getResult();
+
+		tsls.setInitPath(greedyResult);
+		tsls.execute(cities);
+		std::cout << tsls.toString() << std::endl;
+
+		tsls.setInitPath(nullptr);
+		tsls.execute(cities);
+		std::cout << tsls.toString() << std::endl;
+
+		delete greedyResult;
 	}
 
 	int x;
