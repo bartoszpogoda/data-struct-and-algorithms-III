@@ -70,6 +70,9 @@
     <Filter Include="Header Files\CLI">
       <UniqueIdentifier>{40ac6d5b-92f5-4bbd-b738-82a68221453e}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\performance">
+      <UniqueIdentifier>{e899f97d-3da9-490d-b190-ed6a27626980}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -128,6 +131,9 @@
     </ClCompile>
     <ClCompile Include="RandomInstanceGenerator.cpp">
       <Filter>Source Files\input</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>
@@ -193,6 +199,9 @@
     </ClInclude>
     <ClInclude Include="RandomInstanceGenerator.h">
       <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="Timer.h">
+      <Filter>Header Files\performance</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>
