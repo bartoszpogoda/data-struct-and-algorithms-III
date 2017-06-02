@@ -10,12 +10,16 @@
 #include "KSFileReader.h"
 #include "TSFileReader.h"
 
+#include "CLInterface.h"
+
 #include <iostream>
 #include <ctime>
 
 int main() {
 
-	KSFileReader reader("ksinput.txt");
+	CLInterface::enter();
+
+	/*KSFileReader reader("ksinput.txt");
 	std::cout << reader.getItems()->toString() << " CAP: " << reader.getCapacity();
 
 	TSFileReader tsReader("tsinput.txt");
@@ -102,7 +106,7 @@ int main() {
 
 		delete greedyResult;
 	}
-
+	*/
 	int x;
 	std::cin >> x;
 }

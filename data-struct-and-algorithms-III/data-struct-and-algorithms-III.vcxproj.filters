@@ -67,6 +67,9 @@
     <Filter Include="Source Files\input">
       <UniqueIdentifier>{d288410f-737d-4e64-99f9-edf5c10024eb}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Header Files\CLI">
+      <UniqueIdentifier>{40ac6d5b-92f5-4bbd-b738-82a68221453e}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -120,6 +123,9 @@
     <ClCompile Include="TSFileReader.cpp">
       <Filter>Source Files\input</Filter>
     </ClCompile>
+    <ClCompile Include="CLInterface.cpp">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KSItems.h">
@@ -167,9 +173,6 @@
     <ClInclude Include="TSGreedy.h">
       <Filter>Header Files\TS-problem\algorithms\impl</Filter>
     </ClInclude>
-    <ClInclude Include="TSPath.h">
-      <Filter>Header Files\TS-problem\algorithms</Filter>
-    </ClInclude>
     <ClInclude Include="TSLocalSearch3Opt.h">
       <Filter>Header Files\TS-problem\algorithms\impl</Filter>
     </ClInclude>
@@ -178,6 +181,12 @@
     </ClInclude>
     <ClInclude Include="TSFileReader.h">
       <Filter>Header Files\input</Filter>
+    </ClInclude>
+    <ClInclude Include="TSPath.h">
+      <Filter>Header Files\TS-problem\structures</Filter>
+    </ClInclude>
+    <ClInclude Include="CLInterface.h">
+      <Filter>Header Files\CLI</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

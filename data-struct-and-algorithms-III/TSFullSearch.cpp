@@ -49,7 +49,7 @@ void TSFullSearch::execute(AdjacencyMatrix * cities) {
 	// all nodes (except for node 0) are unvisited at beginning
 	unsigned unvisitedSize = cities->getSize() - 1;
 	unsigned *unvisited = new unsigned[unvisitedSize];
-	for (size_t i = 0; i < cities->getSize(); i++) {
+	for (size_t i = 0; i < unvisitedSize; i++) {
 		unvisited[i] = i+1;
 	}
 
@@ -57,7 +57,7 @@ void TSFullSearch::execute(AdjacencyMatrix * cities) {
 
 	// recursion 
 	RecursionStepResult recursionResult = recStep(cities, unvisited, unvisitedSize, startNode);
-		
+
 	// save result (in reversed order) append start node to finish loop
 	result = new TSPath(recursionResult.pathSize + 2, recursionResult.distance);
 	result->add(startNode);
@@ -66,7 +66,7 @@ void TSFullSearch::execute(AdjacencyMatrix * cities) {
 	}
 	result->add(startNode);
 
-	//delete[] unvisited;
+	delete[] unvisited;
 }
 
 std::string TSFullSearch::toString() {

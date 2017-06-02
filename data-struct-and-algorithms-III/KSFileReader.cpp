@@ -54,3 +54,9 @@ void KSFileReader::read(std::string filename) {
 KSFileReader::KSFileReader(std::string filename) : capacity(0), items(nullptr), errorFlag(false) {
 	read(filename);
 }
+
+KSItems * KSFileReader::getItems() {
+	KSItems* items = this->items;
+	this->items = nullptr;
+	return items;
+}

@@ -13,7 +13,7 @@ public:
 	TSFileReader(std::string filename);
 	~TSFileReader() { delete[] cities; }
 
-	AdjacencyMatrix* getCities() { return cities; cities = nullptr; }
+	AdjacencyMatrix* getCities();
 
 	// read status
 	bool success() { return !errorFlag; }
