@@ -2,7 +2,7 @@
 #include "TSAlgorithm.h"
 #include "AdjacencyMatrix.h"
 
-class TSFullSearch : TSAlgorithm {
+class TSFullSearch : public TSAlgorithm {
 	class RecursionStepResult;
 	RecursionStepResult recStep(AdjacencyMatrix* cities, unsigned *unvisited, unsigned unvisitedSize, unsigned previousNode);
 

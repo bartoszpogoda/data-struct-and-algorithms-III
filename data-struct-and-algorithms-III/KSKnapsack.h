@@ -19,5 +19,7 @@ public:
 	void addItemFront(KSItem item);
 	void addItemEnd(KSItem item);
 
+	List<KSItem> *getItems() { return knapsackItems; }
+
 	std::string toString();
 };

@@ -7,6 +7,7 @@ class TSPath {
 public:
 	TSPath(unsigned size, unsigned length) : size(size), currentSize(0), path(new unsigned[size]), length(length) {}
 	TSPath(unsigned size) : TSPath(size, 0) {}
+	TSPath(unsigned* path, unsigned size) : path(path), size(size), currentSize(size), length(0) {}
 	~TSPath() { delete[] path; }
 
 	void add(unsigned pathNode);

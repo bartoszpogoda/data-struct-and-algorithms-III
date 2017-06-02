@@ -41,6 +41,8 @@ void TSGreedy::execute(AdjacencyMatrix * cities) {
 	totalDistance += cities->getEdge(lastVisited, 0);
 	result->add(0);
 	result->setLength(totalDistance);
+
+	delete[] visited;
 }
 
 std::string TSGreedy::toString() {

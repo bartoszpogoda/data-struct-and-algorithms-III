@@ -105,6 +105,9 @@
     <ClCompile Include="TSPath.cpp">
       <Filter>Source Files\TS-problem\structures</Filter>
     </ClCompile>
+    <ClCompile Include="TSLocalSearch3Opt.cpp">
+      <Filter>Source Files\TS-problem\algorithms</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="KSItems.h">
@@ -154,6 +157,9 @@
     </ClInclude>
     <ClInclude Include="TSPath.h">
       <Filter>Header Files\TS-problem\algorithms</Filter>
+    </ClInclude>
+    <ClInclude Include="TSLocalSearch3Opt.h">
+      <Filter>Header Files\TS-problem\algorithms\impl</Filter>
     </ClInclude>
   </ItemGroup>
 </Project>

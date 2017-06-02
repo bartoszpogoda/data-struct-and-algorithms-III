@@ -65,6 +65,8 @@ void TSFullSearch::execute(AdjacencyMatrix * cities) {
 		result->add(recursionResult.path[i]);
 	}
 	result->add(startNode);
+
+	//delete[] unvisited;
 }
 
 std::string TSFullSearch::toString() {
