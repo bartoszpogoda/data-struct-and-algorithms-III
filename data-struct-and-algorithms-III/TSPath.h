@@ -17,5 +17,4 @@ public:
 	unsigned get(unsigned i) { return path[i]; }
 
 	std::string toString();
-
 };

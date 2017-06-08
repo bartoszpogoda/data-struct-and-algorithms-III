@@ -15,7 +15,6 @@ TSFullSearch::RecursionStepResult TSFullSearch::recStep(AdjacencyMatrix * cities
 	unsigned *bestPath = nullptr;
 	unsigned bestPathSize;
 
-
 	for (size_t i = 0; i < unvisitedSize; i++) {
 		unsigned nodeId = unvisited[i];
 		unvisited[i] = unvisited[unvisitedSize - 1];

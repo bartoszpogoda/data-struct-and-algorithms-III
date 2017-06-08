@@ -242,7 +242,7 @@ void CLInterface::viewExecuteTSRandom() {
 	TSGreedy tsgr;
 	TSLocalSearch3Opt tsls;
 
-	AdjacencyMatrix* cities = random.generateAdjacencyMatrix(5);
+	AdjacencyMatrix* cities = random.generateAdjacencyMatrix(10);
 
 	std::cout << "-- TS Problem: " << std::endl;
 	std::cout << "Number of cities: " << cities->getSize() << std::endl << std::endl;

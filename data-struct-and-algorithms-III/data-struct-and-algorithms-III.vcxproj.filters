@@ -73,6 +73,12 @@
     <Filter Include="Header Files\performance">
       <UniqueIdentifier>{e899f97d-3da9-490d-b190-ed6a27626980}</UniqueIdentifier>
     </Filter>
+    <Filter Include="Source Files\performance">
+      <UniqueIdentifier>{c31a7a33-f8f5-4b78-9db8-d2bda9e6730b}</UniqueIdentifier>
+    </Filter>
+    <Filter Include="Source Files\CLI">
+      <UniqueIdentifier>{4eaa3db1-2e9e-4c5f-88df-9900ea8dc079}</UniqueIdentifier>
+    </Filter>
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Source.cpp">
@@ -126,17 +132,17 @@
     <ClCompile Include="TSFileReader.cpp">
       <Filter>Source Files\input</Filter>
     </ClCompile>
-    <ClCompile Include="CLInterface.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="RandomInstanceGenerator.cpp">
       <Filter>Source Files\input</Filter>
     </ClCompile>
-    <ClCompile Include="Timer.cpp">
-      <Filter>Source Files</Filter>
-    </ClCompile>
     <ClCompile Include="PerformanceTester.cpp">
-      <Filter>Source Files</Filter>
+      <Filter>Source Files\performance</Filter>
+    </ClCompile>
+    <ClCompile Include="CLInterface.cpp">
+      <Filter>Source Files\CLI</Filter>
+    </ClCompile>
+    <ClCompile Include="Timer.cpp">
+      <Filter>Source Files\performance</Filter>
     </ClCompile>
   </ItemGroup>
   <ItemGroup>

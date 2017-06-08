@@ -2,7 +2,6 @@
 
 #include "TSPath.h"
 #include "AdjacencyMatrix.h"
-
 #include <string>
 
 /*

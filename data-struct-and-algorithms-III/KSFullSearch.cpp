@@ -16,7 +16,7 @@ KSFullSearch::RecursionStepResult KSFullSearch::recStep(KSItems * items, unsigne
 	} else {
 		// can include i'th item case - decision to make
 		RecursionStepResult ithItemIncluded = recStep(items, remainingCapacity - ithItemWeight, i - 1);
-		RecursionStepResult ithItemNotIncluded = recStep(items, remainingCapacity, i - 1);		// mask is 000000 by default
+		RecursionStepResult ithItemNotIncluded = recStep(items, remainingCapacity, i - 1);	
 
 		if (ithItemValue + ithItemIncluded.value > ithItemNotIncluded.value) {
 			return RecursionStepResult(ithItemIncluded.value + ithItemValue, ithItemIncluded.mask | (1 << i));

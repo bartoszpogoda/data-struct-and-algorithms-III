@@ -10,6 +10,7 @@ void TSGreedy::execute(AdjacencyMatrix * cities) {
 
 	bool* visited = new bool[cities->getSize()];
 
+	// 0 is always the first visited city
 	result->add(0);
 	unsigned lastVisited = 0;
 
@@ -25,19 +26,20 @@ void TSGreedy::execute(AdjacencyMatrix * cities) {
 
 		for (size_t dest = 1; dest < cities->getSize(); dest++) {	// could also hold unvisited cities and access only them
 			if (!visited[dest] && bestDistance > cities->getEdge(lastVisited, dest)) {
-				// source unvisited and closer than previous best 
+				// destination city unvisited and closer than previous best 
 				bestDistance = cities->getEdge(lastVisited, dest);
 				bestNode = dest;
 			}
 		}
 
+		// best node is saved to final path and marked visited
 		visited[bestNode] = true;
 		lastVisited = bestNode;
-
 		totalDistance += bestDistance;
 		result->add(bestNode);
 	}
 
+	// add 0 and distance to it to close the path
 	totalDistance += cities->getEdge(lastVisited, 0);
 	result->add(0);
 	result->setLength(totalDistance);

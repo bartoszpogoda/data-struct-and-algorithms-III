@@ -14,7 +14,6 @@ public:
 	KSFileReader(std::string filename);
 	~KSFileReader() { delete[] items; }
 
-
 	unsigned getCapacity() { return capacity; }
 	KSItems* getItems();
 
