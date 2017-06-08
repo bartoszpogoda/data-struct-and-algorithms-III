@@ -1,6 +1,8 @@
 #include "CLInterface.h"
 #include <conio.h>
 
+#include "RandomInstanceGenerator.h"
+
 #include "KSFullSearch.h"
 #include "KSDynamic.h"
 #include "KSGreedy.h"
@@ -86,7 +88,7 @@ bool CLInterface::viewInputFilenameTS() {
 }
 
 void CLInterface::viewMainMenu() {
-	int selected = 0, max = 2, selectedDelta = 0;
+	int selected = 0, max = 4, selectedDelta = 0;
 
 	system("CLS");
 	while (selected != max) {
@@ -100,9 +102,11 @@ void CLInterface::viewMainMenu() {
 
 			system("CLS");
 			cout << " ++ KS, TS algorithms demo ++ " << endl << endl;
-			cout << ((selected == 0) ? " > " : "   ") << "Knapsack Problem" << endl;
-			cout << ((selected == 1) ? " > " : "   ") << "Traveling Salesman Problem" << endl;
-			cout << ((selected == 2) ? " > " : "   ") << "Exit" << endl;
+			cout << ((selected == 0) ? " > " : "   ") << "Knapsack Problem - File input" << endl;
+			cout << ((selected == 1) ? " > " : "   ") << "Knapsack Problem - Random" << endl;
+			cout << ((selected == 2) ? " > " : "   ") << "Traveling Salesman Problem - File input" << endl;
+			cout << ((selected == 3) ? " > " : "   ") << "Traveling Salesman Problem - Random" << endl;
+			cout << ((selected == 4) ? " > " : "   ") << "Exit" << endl;
 		} while ((selectedDelta = handleUserInput()) != 0);
 
 		if (selected == 0) {
@@ -110,8 +114,12 @@ void CLInterface::viewMainMenu() {
 			viewExecuteKS();
 
 		} else if (selected == 1) {
+			viewExecuteKSRandom();
+		} else if (selected == 2) {
 			while (!viewInputFilenameTS());
 			viewExecuteTS();
+		} else if (selected == 3) {
+			viewExecuteTSRandom();
 		}
 	}
 }
@@ -161,6 +169,80 @@ void CLInterface::viewExecuteTS() {
 	TSLocalSearch3Opt tsls;
 
 	AdjacencyMatrix* cities = tsFileReader->getCities();
+
+	std::cout << "-- TS Problem: " << std::endl;
+	std::cout << "Number of cities: " << cities->getSize() << std::endl << std::endl;
+	std::cout << cities->toString();
+
+	tsfs.execute(cities);
+	std::cout << tsfs.toString() << std::endl;
+
+	tsgr.execute(cities);
+	std::cout << tsgr.toString() << std::endl;
+
+	TSPath* greedyResult = tsgr.getResult();
+
+	tsls.setInitPath(greedyResult);
+	tsls.execute(cities);
+	std::cout << tsls.toString() << std::endl;
+
+	tsls.setInitPath(nullptr);
+	tsls.execute(cities);
+	std::cout << tsls.toString() << std::endl;
+
+	delete greedyResult;
+	delete cities;
+
+	handleUserInput();
+}
+
+void CLInterface::viewExecuteKSRandom() {
+	system("CLS");
+
+	RandomInstanceGenerator random;
+	KSFullSearch fullSearch;
+	KSDynamic dynamic;
+	KSGreedy greedy;
+
+	unsigned capacity = rand() % 1000;
+	KSItems* items = random.generateKSItems(5, capacity);
+
+	std::cout << "-- Knapsack Problem: " << std::endl;
+	std::cout << "Capacity: " << capacity << std::endl;
+	std::cout << items->toString() << std::endl;
+
+	// full search 
+	fullSearch.execute(items, capacity);
+	std::cout << fullSearch.toString() << std::endl;
+
+	// dynamic programming
+	dynamic.execute(items, capacity);
+	std::cout << dynamic.toString() << std::endl;
+
+	// greedy
+	greedy.setItemDecision(new KSGreedyDecisionValue());
+	greedy.execute(items, capacity);
+	std::cout << greedy.toString() << std::endl;
+
+	greedy.setItemDecision(new KSGreedyDecisionValueToWeight());
+	greedy.execute(items, capacity);
+	std::cout << greedy.toString() << std::endl;
+
+	delete items;
+
+	cout << endl << "> Return to main menu";
+	handleUserInput();
+}
+
+void CLInterface::viewExecuteTSRandom() {
+	system("CLS");
+
+	RandomInstanceGenerator random;
+	TSFullSearch tsfs;
+	TSGreedy tsgr;
+	TSLocalSearch3Opt tsls;
+
+	AdjacencyMatrix* cities = random.generateAdjacencyMatrix(5);
 
 	std::cout << "-- TS Problem: " << std::endl;
 	std::cout << "Number of cities: " << cities->getSize() << std::endl << std::endl;

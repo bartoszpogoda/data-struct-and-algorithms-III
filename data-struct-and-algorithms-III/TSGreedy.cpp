@@ -23,7 +23,7 @@ void TSGreedy::execute(AdjacencyMatrix * cities) {
 		int bestDistance = UINT_MAX;
 		int bestNode = -1;
 
-		for (size_t dest = 1; dest < cities->getSize(); dest++) {
+		for (size_t dest = 1; dest < cities->getSize(); dest++) {	// could also hold unvisited cities and access only them
 			if (!visited[dest] && bestDistance > cities->getEdge(lastVisited, dest)) {
 				// source unvisited and closer than previous best 
 				bestDistance = cities->getEdge(lastVisited, dest);

@@ -14,6 +14,6 @@ class KSGreedyDecisionValue : public KSGreedyDecision {
 };
 
 class KSGreedyDecisionValueToWeight : public KSGreedyDecision {
-	bool decide(KSItem a, KSItem b) { return (a.getValue()) / (a.getWeight()) >= (b.getValue()) / (b.getWeight()); }
+	bool decide(KSItem a, KSItem b) { return ((double)a.getValue()) / (a.getWeight()) >= ((double)b.getValue()) / (b.getWeight()); }
 	std::string toString() { return "Value/Weight"; }
 };

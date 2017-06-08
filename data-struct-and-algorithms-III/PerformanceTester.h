@@ -12,12 +12,13 @@
 
 class PerformanceTester {
 	// hard coded parameters
-	unsigned kspN[5] = {1000,2000,3000,4000,5000};
+	unsigned kspN[5] = {1000,3000,5000,7000,9000};
 	unsigned kspNFullSearch[5] = { 50, 60, 70, 80, 90};
-	unsigned kspCapacities[3] = { 100, 200, 300 };
+	unsigned kspCapacities[3] = { 500, 1000, 1500 };
 
-	unsigned tspN[5] = {50,60,70,80,90};
-	unsigned tspNFullSearch[5] = { 5,6,7,8,9 };
+	//unsigned tspN[5] = {50,60,70,80,90};
+	unsigned tspN[5] = {100,200,300,400,500};
+	unsigned tspNFullSearch[5] = { 6,7,8,9,10 };
 
 	int iterations = 100;
 
@@ -34,6 +35,9 @@ public:
 	void runKSDynamic();
 	void runKSFullSearch();
 	void runKSGreedy();
+
+	void runKSFullSearchProgressive();
+	void runTSFullSearchProgressive();
 
 	void runTSLocalSearch();
 	void runTSFullSearch();

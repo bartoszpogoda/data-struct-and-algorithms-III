@@ -6,15 +6,18 @@ int main() {
 	CLInterface::enter();
 
 	PerformanceTester perf;
-	perf.runKSDynamic();
-	perf.runKSGreedy();
 
-	perf.runTSLocalSearch();
-	perf.runTSGreedy();
+	//perf.runTSFullSearchProgressive();
+	//perf.runKSFullSearchProgressive();
 
-	perf.runKSFullSearch();
-	perf.runTSFullSearch();
+	//perf.runKSDynamic();
+	//perf.runKSGreedy();
 
+	//perf.runTSLocalSearch();
+	//perf.runTSGreedy();
+
+	//perf.runKSFullSearch();
+	//perf.runTSFullSearch();
 
 	int x;
 	std::cin >> x;

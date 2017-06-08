@@ -116,6 +116,61 @@ void PerformanceTester::runKSGreedy() {
 	}
 }
 
+void PerformanceTester::runKSFullSearchProgressive() {
+	delete ksAlgorithm;
+	ksAlgorithm = new KSFullSearch();
+	unsigned capacity = 1000;
+	unsigned n = 185;
+
+	std::cout << "KSFullSearchProgressive " << n << "..." << std::endl;
+	while (true){
+		std::cout << n << ";";
+		KSItems* randomItems = generator.generateKSItems(n, capacity);
+
+		timer.startTimer();
+		ksAlgorithm->execute(randomItems, capacity);
+
+		KSKnapsack* result =  ksAlgorithm->getResult();
+		std::cout << "Result: " << result->toString() << std::endl;
+		timer.endTimer();
+
+		delete result;
+		delete randomItems;
+
+		std::cout << timer.timeSeconds() << std::endl;
+		n++;
+	}
+	std::cout << std::endl;
+}
+
+void PerformanceTester::runTSFullSearchProgressive() {
+	delete tsAlgorithm;
+	tsAlgorithm = new TSFullSearch();
+	unsigned n = 13;
+
+	std::cout << "KSFullSearchProgressive " << n << "..." << std::endl;
+	while (true) {
+		std::cout << n << ";";
+		AdjacencyMatrix* randomCities = generator.generateAdjacencyMatrix(n);
+
+		std::cout << "Generated instance" << std::endl;
+
+		timer.startTimer();
+		tsAlgorithm->execute(randomCities);
+		timer.endTimer();
+
+		TSPath* result = tsAlgorithm->getResult();
+		std::cout << "Result: " << result->toString() << std::endl;
+
+		delete result;
+		delete randomCities;
+
+		std::cout << timer.timeSeconds() << std::endl;
+		n++;
+	}
+	std::cout << std::endl;
+}
+
 void PerformanceTester::runTSLocalSearch() {
 	delete tsAlgorithm;
 	tsAlgorithm = new TSLocalSearch3Opt();
