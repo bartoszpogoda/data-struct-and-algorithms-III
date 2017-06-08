@@ -8,7 +8,7 @@
 				| 0 | 0 | 0 | 0 | 0 | <- guardian row to avoid index == -1 check
 	5  /   4    | 0 |   |   |   |   |
 	7  /   5    | 0 |   |   |   |   |
-	1  /   1    | 0 |   |   |   | _ | <- sollution (best value)
+	1  /   1    | 0 |   |   |   | _ | <- solution (best value)
 */
 void KSDynamic::execute(KSItems * items, unsigned capacity) {
 	delete result;

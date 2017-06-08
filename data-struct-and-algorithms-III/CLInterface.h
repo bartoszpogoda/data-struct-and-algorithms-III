@@ -26,4 +26,7 @@ public:
 
 	static void viewExecuteKS();
 	static void viewExecuteTS();
+
+	static void viewExecuteKSRandom();
+	static void viewExecuteTSRandom();
 };

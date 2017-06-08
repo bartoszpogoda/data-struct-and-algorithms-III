@@ -153,7 +153,10 @@
     <ClCompile Include="KSItemHeapSort.cpp" />
     <ClCompile Include="KSItems.cpp" />
     <ClCompile Include="KSKnapsack.cpp" />
+    <ClCompile Include="PerformanceTester.cpp" />
+    <ClCompile Include="RandomInstanceGenerator.cpp" />
     <ClCompile Include="Source.cpp" />
+    <ClCompile Include="Timer.cpp" />
     <ClCompile Include="TSAlgorithm.cpp" />
     <ClCompile Include="TSFileReader.cpp" />
     <ClCompile Include="TSFullSearch.cpp" />
@@ -176,6 +179,9 @@
     <ClInclude Include="KSKnapsack.h" />
     <ClInclude Include="List.h" />
     <ClInclude Include="ListNode.h" />
+    <ClInclude Include="PerformanceTester.h" />
+    <ClInclude Include="RandomInstanceGenerator.h" />
+    <ClInclude Include="Timer.h" />
     <ClInclude Include="TSAlgorithm.h" />
     <ClInclude Include="TSFileReader.h" />
     <ClInclude Include="TSFullSearch.h" />
